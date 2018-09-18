@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Latest News</title>
+
+<style>
+
+	div{
+		border: 1px solid black;
+	}
+    .card{
+   
+        float: left;
+    }
+
+    .card-header {
+        font-size: 10px;
+    }
+
+    .card-text {
+        font-size: 9px;
+    }
+
+</style>
+
+</head>
+
+
+
+<body>
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+        <h1 class="text-center"><strong>Latest News Articles</strong></h1>
+    </div>
+
+
+
+
+    <container class="container-fluid">
+
+    <br>
+        <div class="row">
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header0">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header1">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text1">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header2">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header3">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header4">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text4">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header5">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text5">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header6">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text6">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+              <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header7">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text7">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header8">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text8">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    <br>
+
+            <div class="col">
+                <!--News Card 0-->
+                    <div id="card-header9">Header</div>
+                    <div class="card-body">
+                        <p class="card-text" id="card-text9">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+    </container>
+
+
+
+<!--Google JQuery Ability Link-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<!-- JavaScript Code -->
+<script> 
+
+$(document).ready( function(){
+    
+    var divs = document.getElementsByTagName("div");
+    var lis = document.getElementsByTagName("lis");
+
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url += '?' + $.param({
+        'api-key': "02c5bdd2f862477baa6c29cffd68c563",
+        'q': "police shoot lawsuit",
+        'begin_date': "20160101",
+        'end_date': "20180501",
+        'sort': "newest"
+
+    });
+
+    $.ajax({
+        url: url,
+        method: 'GET',
+    }).done(function(result) {
+        console.log(result);
+
+        var articles=result.response.docs;
+        var other=result.response.meta;
+        var div = document.getElementsByTagName("div");
+
+
+document.getElementById('card-header0').innerHTML = articles[0].headline.main;
+ document.getElementById('card-header1').innerHTML = articles[1].headline.main;
+  document.getElementById('card-header2').innerHTML = articles[2].headline.main;
+   document.getElementById('card-header3').innerHTML = articles[3].headline.main;
+    document.getElementById('card-header4').innerHTML = articles[4].headline.main;
+     document.getElementById('card-header5').innerHTML = articles[5].headline.main;
+      document.getElementById('card-header6').innerHTML = articles[6].headline.main;
+       document.getElementById('card-header7').innerHTML = articles[7].headline.main;
+        document.getElementById('card-header8').innerHTML = articles[8].headline.main;
+         document.getElementById('card-header9').innerHTML = articles[9].headline.main;
+
+document.getElementById('card-text0').innerHTML = articles[0].snippet;
+ document.getElementById('card-text1').innerHTML = articles[1].snippet;
+  document.getElementById('card-text2').innerHTML = articles[2].snippet;
+   document.getElementById('card-text3').innerHTML = articles[3].snippet;
+    document.getElementById('card-text4').innerHTML = articles[4].snippet;
+     document.getElementById('card-text5').innerHTML = articles[5].snippet;
+      document.getElementById('card-text6').innerHTML = articles[6].snippet;
+       document.getElementById('card-text7').innerHTML = articles[7].snippet;
+        document.getElementById('card-text8').innerHTML = articles[8].snippet;
+         document.getElementById('card-text9').innerHTML = articles[9].snippet;
+    });
+});
+
+</script>
+
+</body>
+
+</html>
